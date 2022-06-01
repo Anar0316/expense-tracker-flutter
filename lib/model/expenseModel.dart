@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
 
 class expenseModel {
   int id;
@@ -15,8 +14,6 @@ class expenseModel {
     required this.incomeOrexpense,
     required this.amount_date,
   });
-
-  
 
   expenseModel copyWith({
     int? id,
@@ -56,7 +53,8 @@ class expenseModel {
 
   String toJson() => json.encode(toMap());
 
-  factory expenseModel.fromJson(String source) => expenseModel.fromMap(json.decode(source));
+  factory expenseModel.fromJson(String source) =>
+      expenseModel.fromMap(json.decode(source));
 
   @override
   String toString() {
@@ -66,21 +64,21 @@ class expenseModel {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is expenseModel &&
-      other.id == id &&
-      other.title == title &&
-      other.amount == amount &&
-      other.incomeOrexpense == incomeOrexpense &&
-      other.amount_date == amount_date;
+        other.id == id &&
+        other.title == title &&
+        other.amount == amount &&
+        other.incomeOrexpense == incomeOrexpense &&
+        other.amount_date == amount_date;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-      title.hashCode ^
-      amount.hashCode ^
-      incomeOrexpense.hashCode ^
-      amount_date.hashCode;
+        title.hashCode ^
+        amount.hashCode ^
+        incomeOrexpense.hashCode ^
+        amount_date.hashCode;
   }
 }

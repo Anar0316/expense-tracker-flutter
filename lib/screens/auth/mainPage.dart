@@ -57,7 +57,7 @@ class _MainPageState extends State<MainPage> {
                               fontSize: 80, fontWeight: FontWeight.w200)),
                     ));
                   case Status.COMPLETED:
-                    WidgetsBinding.instance?.addPostFrameCallback(
+                    WidgetsBinding.instance.addPostFrameCallback(
                       (_) => Navigator.pushReplacementNamed(
                           context, Routes.baseRoute),
                     );
@@ -67,8 +67,10 @@ class _MainPageState extends State<MainPage> {
                     if (snapshot.data!.msg ==
                             'Unauthorised: {"detail":"Invalid token."}' ||
                         snapshot.data!.msg ==
-                            'Invalid Request: {"detail":"Invalid token."}' || snapshot.data!.msg == 'Invalid Request: {"detail":"Invalid token header. No credentials provided."}') {
-                      WidgetsBinding.instance?.addPostFrameCallback(
+                            'Invalid Request: {"detail":"Invalid token."}' ||
+                        snapshot.data!.msg ==
+                            'Invalid Request: {"detail":"Invalid token header. No credentials provided."}') {
+                      WidgetsBinding.instance.addPostFrameCallback(
                         (_) => Navigator.pushReplacementNamed(
                             context, Routes.welcomeRoute),
                       );

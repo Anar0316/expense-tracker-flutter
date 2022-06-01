@@ -73,7 +73,7 @@ class _DashboardPageState extends State<DashboardPage>
                                       'Unauthorised: {"detail":"Invalid token."}' ||
                                   snapshot.data!.msg ==
                                       'Invalid Request: {"detail":"Invalid token."}') {
-                                WidgetsBinding.instance?.addPostFrameCallback(
+                                WidgetsBinding.instance.addPostFrameCallback(
                                   (_) => Navigator.pushReplacementNamed(
                                       context, Routes.welcomeRoute),
                                 );
@@ -159,7 +159,7 @@ class _DashboardPageState extends State<DashboardPage>
                                     'Unauthorised: {"detail":"Invalid token."}' ||
                                 snapshot.data!.msg ==
                                     'Invalid Request: {"detail":"Invalid token."}') {
-                              WidgetsBinding.instance?.addPostFrameCallback(
+                              WidgetsBinding.instance.addPostFrameCallback(
                                 (_) => Navigator.pushReplacementNamed(
                                     context, Routes.welcomeRoute),
                               );

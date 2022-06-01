@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:expense_tracker_app/constants/colors.dart';
 import 'package:expense_tracker_app/constants/routes.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +20,15 @@ class WelcomePage extends StatelessWidget {
                 children: [
                   SizedBox(height: 40),
                   Text("Welcome",
-                      style: GoogleFonts.poppins(
-                          fontSize: 50, color: Colors.black)),
+                      style: GoogleFonts.cormorantGaramond(
+                          fontSize: 50,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold)),
                   Padding(
                     padding: const EdgeInsets.only(
                         top: 20.0, right: 10.0, left: 10.0),
                     child: Image.asset(
-                      'assets/images/welcome.jpg',
+                      'assets/images/logo-removebg-preview.png',
                       width: 397,
                       height: 316,
                     ),

@@ -113,7 +113,7 @@ class _IncomeRecordItemState extends State<IncomeRecordItem> {
                   builder: (context, snapshot) {
                     switch (snapshot.data?.status) {
                       case Status.LOADING:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading == false) {
                             setState(() {
                               loading = true;
@@ -123,7 +123,7 @@ class _IncomeRecordItemState extends State<IncomeRecordItem> {
                         break;
 
                       case Status.COMPLETED:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           // Navigator.pushNamedAndRemoveUntil(
                           //     context, Routes.baseRoute, (route) => false);
                           if (loading) {
@@ -138,13 +138,13 @@ class _IncomeRecordItemState extends State<IncomeRecordItem> {
                         break;
 
                       case Status.ERROR:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading == false) {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(snapshot.data!.msg)));
                           }
                         });
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading) {
                             setState(() {
                               loading = false;

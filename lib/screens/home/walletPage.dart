@@ -125,7 +125,7 @@ class _WalletPageState extends State<WalletPage>
                                                 fontSize: 22,
                                                 fontWeight: FontWeight.w500)),
                                         Text(
-                                            'Wallet Cash 💵: ' +
+                                            'Wallet Cas MNT: ' +
                                                 snapshot.data!.data.amount
                                                     .toString(),
                                             style: GoogleFonts.poppins(
@@ -151,10 +151,10 @@ class _WalletPageState extends State<WalletPage>
                         padding: const EdgeInsets.only(
                             top: 10.0, bottom: 10.0, left: 20.0, right: 20.0),
                         child: MaterialButton(
-                          color: AppColors.purpleColor,
+                          color: Colors.pink,
                           height: 55,
                           shape: RoundedRectangleBorder(
-                              side: BorderSide(color: AppColors.purpleColor),
+                              side: BorderSide(color: Colors.black),
                               borderRadius: BorderRadius.circular(15)),
                           onPressed: () => {
                             showDialog(
@@ -209,7 +209,7 @@ class _WalletPageState extends State<WalletPage>
                                     'Unauthorised: {"detail":"Invalid token."}' ||
                                 snapshot.data!.msg ==
                                     'Invalid Request: {"detail":"Invalid token."}') {
-                              WidgetsBinding.instance?.addPostFrameCallback(
+                              WidgetsBinding.instance.addPostFrameCallback(
                                 (_) => Navigator.pushReplacementNamed(
                                     context, Routes.welcomeRoute),
                               );

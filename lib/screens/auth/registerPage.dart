@@ -215,8 +215,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         if (snapshot.hasData) {
                           switch (snapshot.data?.status) {
                             case Status.LOADING:
-                              WidgetsBinding.instance
-                                  ?.addPostFrameCallback((_) {
+                              WidgetsBinding.instance.addPostFrameCallback((_) {
                                 if (loading == false) {
                                   setState(() {
                                     loading = true;
@@ -225,8 +224,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               });
                               break;
                             case Status.COMPLETED:
-                              WidgetsBinding.instance
-                                  ?.addPostFrameCallback((_) {
+                              WidgetsBinding.instance.addPostFrameCallback((_) {
                                 pref.setToken(snapshot.data!.data.token);
                                 pref.setUserName(
                                     snapshot.data!.data.user.username);
@@ -236,8 +234,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               });
                               break;
                             case Status.ERROR:
-                              WidgetsBinding.instance
-                                  ?.addPostFrameCallback((_) {
+                              WidgetsBinding.instance.addPostFrameCallback((_) {
                                 if (loading == false) {
                                   if (snapshot.data!.msg ==
                                       'Invalid Request: {"email":["Enter a valid email address."]}') {
@@ -254,8 +251,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                               Text("Username already taken.")));
                                 }
                               });
-                              WidgetsBinding.instance
-                                  ?.addPostFrameCallback((_) {
+                              WidgetsBinding.instance.addPostFrameCallback((_) {
                                 if (loading) {
                                   setState(() {
                                     loading = false;

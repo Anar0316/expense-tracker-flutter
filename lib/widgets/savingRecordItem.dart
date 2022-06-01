@@ -105,7 +105,6 @@ class _SavingRecordItemState extends State<SavingRecordItem> {
                           fontSize: 20,
                           fontWeight: FontWeight.w500)),
                   loading ? loadingBtn() : removeBtn(widget.data.id),
-
                 ],
               ),
               StreamBuilder<ExpenseDeleteApiResponse<dynamic>>(
@@ -113,7 +112,7 @@ class _SavingRecordItemState extends State<SavingRecordItem> {
                   builder: (context, snapshot) {
                     switch (snapshot.data?.status) {
                       case Status.LOADING:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading == false) {
                             setState(() {
                               loading = true;
@@ -123,7 +122,7 @@ class _SavingRecordItemState extends State<SavingRecordItem> {
                         break;
 
                       case Status.COMPLETED:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           // Navigator.pushNamedAndRemoveUntil(
                           //     context, Routes.baseRoute, (route) => false);
                           if (loading) {
@@ -138,13 +137,13 @@ class _SavingRecordItemState extends State<SavingRecordItem> {
                         break;
 
                       case Status.ERROR:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading == false) {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text(snapshot.data!.msg)));
                           }
                         });
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading) {
                             setState(() {
                               loading = false;

@@ -197,7 +197,7 @@ class _LoginPageState extends State<LoginPage> {
                   if (snapshot.hasData) {
                     switch (snapshot.data?.status) {
                       case Status.LOADING:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading == false) {
                             setState(() {
                               loading = true;
@@ -207,7 +207,7 @@ class _LoginPageState extends State<LoginPage> {
                         break;
 
                       case Status.COMPLETED:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading) {
                             setState(() {
                               loading = false;
@@ -228,7 +228,7 @@ class _LoginPageState extends State<LoginPage> {
                         break;
 
                       case Status.ERROR:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading == false) {
                             if (snapshot.data!.msg ==
                                 'Invalid Request: {"non_field_errors":["Incorrect Credentials"]}') {
@@ -239,7 +239,7 @@ class _LoginPageState extends State<LoginPage> {
                             }
                           }
                         });
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading) {
                             setState(() {
                               loading = false;

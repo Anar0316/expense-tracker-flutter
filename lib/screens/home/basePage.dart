@@ -52,7 +52,7 @@ class _BasePageState extends State<BasePage> with TickerProviderStateMixin {
     final screens = [DashboardPage(), WalletPage(), SignoutPage()];
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Theme.of(context).brightness == Brightness.light
-          ? AppColors.darkPurpleColor
+          ? Color.fromARGB(255, 32, 32, 39)
           : AppColors.darkpinkColor,
     ));
     return Scaffold(
@@ -64,13 +64,13 @@ class _BasePageState extends State<BasePage> with TickerProviderStateMixin {
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
               color: Theme.of(context).brightness == Brightness.light
-                  ? AppColors.purpleColor
+                  ? Colors.pink
                   : AppColors.black),
           child: TabBar(
             // indicatorColor: AppColors.purpleColor,
             indicator: BoxDecoration(
                 color: Theme.of(context).brightness == Brightness.light
-                    ? AppColors.darkPurpleColor
+                    ? Colors.pink.shade100
                     : AppColors.darkpinkColor),
             controller: tabController,
             tabs: [

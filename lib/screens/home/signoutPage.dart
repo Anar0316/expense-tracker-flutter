@@ -34,10 +34,10 @@ class _SignoutPageState extends State<SignoutPage>
 
   Widget logoutBtn() {
     return MaterialButton(
-      color: AppColors.redColor,
+      color: Colors.pink,
       height: 55,
       shape: RoundedRectangleBorder(
-          side: BorderSide(color: AppColors.redColor),
+          side: BorderSide(color: Colors.pink.shade100),
           borderRadius: BorderRadius.circular(15)),
       onPressed: () => logout(),
       child: Text(
@@ -83,7 +83,7 @@ class _SignoutPageState extends State<SignoutPage>
                   builder: (context, snapshot) {
                     switch (snapshot.data?.status) {
                       case Status.LOADING:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading == false) {
                             setState(() {
                               loading = true;
@@ -92,7 +92,7 @@ class _SignoutPageState extends State<SignoutPage>
                         });
                         break;
                       case Status.COMPLETED:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           pref.setToken("");
                           pref.setUserName("");
 
@@ -101,13 +101,13 @@ class _SignoutPageState extends State<SignoutPage>
                         });
                         break;
                       case Status.ERROR:
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading == false) {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text("Sign out failed")));
                           }
                         });
-                        WidgetsBinding.instance?.addPostFrameCallback((_) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
                           if (loading) {
                             setState(() {
                               loading = false;

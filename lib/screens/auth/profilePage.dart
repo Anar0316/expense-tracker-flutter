@@ -129,7 +129,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     if (snapshot.hasData) {
                       switch (snapshot.data?.status) {
                         case Status.LOADING:
-                          WidgetsBinding.instance?.addPostFrameCallback((_) {
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
                             if (loading == false) {
                               setState(() {
                                 loading = true;
@@ -139,14 +139,14 @@ class _ProfilePageState extends State<ProfilePage> {
                           break;
 
                         case Status.COMPLETED:
-                          WidgetsBinding.instance?.addPostFrameCallback((_) {
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
                             Navigator.pushNamedAndRemoveUntil(
                                 context, Routes.baseRoute, (route) => false);
                           });
                           break;
 
                         case Status.ERROR:
-                          WidgetsBinding.instance?.addPostFrameCallback((_) {
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
                             if (loading) {
                               setState(() {
                                 loading = false;
